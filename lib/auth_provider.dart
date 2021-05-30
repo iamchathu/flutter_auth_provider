@@ -16,6 +16,7 @@ class AuthProvider<U> extends ChangeNotifier {
 
   bool get isLoggedIn => _currentUser != null;
 
+  /// Initialize AuthProvide with [AuthStore] implementation to store logged in [U].
   AuthProvider(this._store) {
     _initialize();
   }
@@ -47,7 +48,7 @@ class AuthProvider<U> extends ChangeNotifier {
   }
 
   /// Add [listener] to LoginListeners.
-  /// The listeners will get called with logged in user [T].
+  /// The listeners will get called with logged in user [U].
   /// Setting up Sentry user and other login related activities can be done using the listener.
   void addLoginListener(LoginListener<U> listener) {
     loginListeners.add(listener);
