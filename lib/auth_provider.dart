@@ -2,18 +2,17 @@ library auth_provider;
 
 import 'package:auth_provider/auth_store.dart';
 import 'package:auth_provider/listener.dart';
-import 'package:auth_provider/user.dart';
 import 'package:flutter/foundation.dart';
 
 /// Auth provider.
-class AuthProvider extends ChangeNotifier {
-  final List<LoginListener> loginListeners = [];
+class AuthProvider<U> extends ChangeNotifier {
+  final List<LoginListener<U>> loginListeners = [];
   final List<LogoutListener> logoutListeners = [];
-  late final AuthStore _store;
+  late final AuthStore<U> _store;
 
-  User? _currentUser;
+  U? _currentUser;
 
-  User? get user => _currentUser;
+  U? get user => _currentUser;
 
   bool get isLoggedIn => _currentUser != null;
 
@@ -26,7 +25,7 @@ class AuthProvider extends ChangeNotifier {
     _setUser(user);
   }
 
-  onLogin(User user) async {
+  onLogin(U user) async {
     await _store.save(user);
     _setUser(user);
     loginListeners.forEach((listener) {
@@ -42,13 +41,13 @@ class AuthProvider extends ChangeNotifier {
     });
   }
 
-  _setUser(User? user) {
+  _setUser(U? user) {
     this._currentUser = user;
     this.notifyListeners();
   }
 
   /// Add [listener] to LoginListeners.
-  void addLoginListener(LoginListener listener) {
+  void addLoginListener(LoginListener<U> listener) {
     loginListeners.add(listener);
   }
 
