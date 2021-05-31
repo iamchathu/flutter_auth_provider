@@ -1,4 +1,4 @@
-name: auth_provider
+name: flutter_auth_provider
 description: Simple authentication manager for Flutter
 version: 0.0.1-dev.1
 homepage: https://github.com/iamchathu/flutter_auth_provider

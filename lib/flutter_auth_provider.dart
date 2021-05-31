@@ -1,8 +1,8 @@
-library auth_provider;
+library flutter_auth_provider;
 
-import 'package:auth_provider/auth_store.dart';
-import 'package:auth_provider/listener.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_auth_provider/auth_store.dart';
+import 'package:flutter_auth_provider/listener.dart';
 
 /// Auth provider.
 class AuthProvider<U> extends ChangeNotifier {
