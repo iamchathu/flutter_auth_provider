@@ -12,8 +12,10 @@ class AuthProvider<U> extends ChangeNotifier {
 
   U? _currentUser;
 
+  /// Get the current logged in user [U].
   U? get user => _currentUser;
 
+  /// Get if user is currently logged in or not.
   bool get isLoggedIn => _currentUser != null;
 
   /// Initialize AuthProvide with [AuthStore] implementation to store logged in [U].
@@ -26,6 +28,8 @@ class AuthProvider<U> extends ChangeNotifier {
     _setUser(user);
   }
 
+  /// This function should be called after user[U] credentials got authenticated.
+  /// Authenticated [user] must be provided.
   onLogin(U user) async {
     await _store.save(user);
     _setUser(user);
@@ -34,6 +38,7 @@ class AuthProvider<U> extends ChangeNotifier {
     });
   }
 
+  /// This function should be called when you want to logged out current user.
   onLogout() async {
     await _store.delete();
     _setUser(null);
