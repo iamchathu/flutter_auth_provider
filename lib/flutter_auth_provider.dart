@@ -6,8 +6,8 @@ import 'package:flutter_auth_provider/listener.dart';
 
 /// Auth provider.
 class AuthProvider<U> extends ChangeNotifier {
-  final List<LoginListener<U>> loginListeners = [];
-  final List<LogoutListener> logoutListeners = [];
+  final List<LoginListener<U>> _loginListeners = [];
+  final List<LogoutListener> _logoutListeners = [];
   late final AuthStore<U> _store;
 
   U? _currentUser;
@@ -32,19 +32,19 @@ class AuthProvider<U> extends ChangeNotifier {
   /// Authenticated [user] must be provided.
   onLogin(U user) async {
     await _store.save(user);
-    _setUser(user);
-    loginListeners.forEach((listener) {
+    _loginListeners.forEach((listener) {
       listener.onLogin(user);
     });
+    _setUser(user);
   }
 
   /// This function should be called when you want to logged out current user.
-  onLogout() async {
+  logout() async {
     await _store.delete();
-    _setUser(null);
-    logoutListeners.forEach((listener) {
+    _logoutListeners.forEach((listener) {
       listener.onLogout();
     });
+    _setUser(null);
   }
 
   _setUser(U? user) {
@@ -56,13 +56,13 @@ class AuthProvider<U> extends ChangeNotifier {
   /// The listeners will get called with logged in user [U].
   /// Setting up Sentry user and other login related activities can be done using the listener.
   void addLoginListener(LoginListener<U> listener) {
-    loginListeners.add(listener);
+    _loginListeners.add(listener);
   }
 
   /// Add [listener] to LogoutListeners.
   /// The listeners will get called when user logout is called.
   /// Clearing Sentry user other cache clearing can be done using the listener
   void addLogoutListener(LogoutListener listener) {
-    logoutListeners.add(listener);
+    _logoutListeners.add(listener);
   }
 }
