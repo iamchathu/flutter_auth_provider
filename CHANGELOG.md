@@ -1,3 +1,8 @@
+## 0.0.1-dev.3
+
+* Remove initialize from constructor make it public so consumer can use when they want.
+* Introduce withListeners factory to construct AuthProvider with single LoginListener and LogoutListener.
+
 ## 0.0.1-dev.1
 
-* TODO: Describe initial release.
+* Initial release.
