@@ -1,3 +1,7 @@
+## 0.0.1-dev.4
+
+* Add TokenStore interface.
+
 ## 0.0.1-dev.3
 
 * Remove initialize from constructor make it public so consumer can use when they want.
