@@ -80,5 +80,25 @@ void main() {
       await authProvider.onLogin('user');
       verify(mockLoginListener.onLogin('user')).called(1);
     });
+
+    test('all logoutListener should be called once after logout', () async {
+      MockLogoutListener mockLogoutListener1 = MockLogoutListener();
+      MockLogoutListener mockLogoutListener2 = MockLogoutListener();
+      authProvider.addLogoutListener(mockLogoutListener1);
+      authProvider.addLogoutListener(mockLogoutListener2);
+      await authProvider.logout();
+      verify(mockLogoutListener1.onLogout()).called(1);
+      verify(mockLogoutListener2.onLogout()).called(1);
+    });
+
+    test('all loginListener should be called once after login', () async {
+      MockLogInListener<String> mockLoginListener1 = MockLogInListener();
+      MockLogInListener<String> mockLoginListener2 = MockLogInListener();
+      authProvider.addLoginListener(mockLoginListener1);
+      authProvider.addLoginListener(mockLoginListener2);
+      await authProvider.onLogin('user');
+      verify(mockLoginListener1.onLogin('user')).called(1);
+      verify(mockLoginListener2.onLogin('user')).called(1);
+    });
   });
 }
