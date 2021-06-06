@@ -27,6 +27,8 @@ class FakeAuthStore<U> extends Fake implements AuthStore<U> {
 
 class MockLogoutListener extends Mock implements LogoutListener {}
 
+class MockLogInListener<U> extends Mock implements LoginListener<U> {}
+
 void main() {
   group(AuthProvider, () {
     late AuthStore<String> authStore;
@@ -70,6 +72,13 @@ void main() {
       authProvider.addLogoutListener(mockLogoutListener);
       await authProvider.logout();
       verify(mockLogoutListener.onLogout()).called(1);
+    });
+
+    test('loginListener should be called once after login', () async {
+      MockLogInListener<String> mockLoginListener = MockLogInListener();
+      authProvider.addLoginListener(mockLoginListener);
+      await authProvider.onLogin('user');
+      verify(mockLoginListener.onLogin('user')).called(1);
     });
   });
 }
