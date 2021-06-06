@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter_auth_provider/auth_store.dart';
 import 'package:flutter_auth_provider/flutter_auth_provider.dart';
+import 'package:flutter_auth_provider/listener.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
 
-class FakeAuthStore<U> implements AuthStore<U> {
+class FakeAuthStore<U> extends Fake implements AuthStore<U> {
   U? _u;
 
   @override
@@ -22,6 +24,8 @@ class FakeAuthStore<U> implements AuthStore<U> {
     _u = user;
   }
 }
+
+class MockLogoutListener extends Mock implements LogoutListener {}
 
 void main() {
   group(AuthProvider, () {
@@ -49,6 +53,23 @@ void main() {
     test('isLoggedIn should be set to true after login in', () async {
       await authProvider.onLogin('user');
       expect(authProvider.isLoggedIn, true);
+    });
+
+    test('user should be set to null after logout', () async {
+      await authProvider.logout();
+      expect(authProvider.user, isNull);
+    });
+
+    test('isLoggedIn should be set to false after  logout', () async {
+      await authProvider.logout();
+      expect(authProvider.isLoggedIn, false);
+    });
+
+    test('logoutListener should be called once after logout', () async {
+      MockLogoutListener mockLogoutListener = MockLogoutListener();
+      authProvider.addLogoutListener(mockLogoutListener);
+      await authProvider.logout();
+      verify(mockLogoutListener.onLogout()).called(1);
     });
   });
 }
