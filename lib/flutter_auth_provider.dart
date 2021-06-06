@@ -42,9 +42,9 @@ class AuthProvider<U> extends ChangeNotifier {
     _setUser(user);
   }
 
-  /// This function should be called after user[U] credentials got authenticated.
+  /// This function should be called after user [U] credentials got authenticated.
   /// Authenticated [user] must be provided.
-  onLogin(U user) async {
+  Future<void> onLogin(U user) async {
     await _store.save(user);
     _loginListeners.forEach((listener) {
       listener.onLogin(user);
@@ -54,7 +54,7 @@ class AuthProvider<U> extends ChangeNotifier {
 
   /// This function should be called when you want to logged out current user.
   /// Store will get cleared and [LogoutListener] will get called.
-  logout() async {
+  Future<void> logout() async {
     await _store.delete();
     _logoutListeners.forEach((listener) {
       listener.onLogout();
@@ -62,7 +62,7 @@ class AuthProvider<U> extends ChangeNotifier {
     _setUser(null);
   }
 
-  _setUser(U? user) {
+  void _setUser(U? user) {
     this._currentUser = user;
     this.notifyListeners();
   }
