@@ -1,3 +1,8 @@
+## 0.0.1-dev.5
+
+* Refactor project structure without breaking changes.
+* Add tests.
+
 ## 0.0.1-dev.4
 
 * Add TokenStore interface.
