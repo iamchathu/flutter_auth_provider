@@ -1,23 +1,15 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_auth_provider/src/auth_store.dart';
+import 'package:flutter_auth_provider/src/core.dart';
 import 'package:flutter_auth_provider/src/listener.dart';
 
 /// Auth provider.
-class AuthProvider<U> extends ChangeNotifier {
+class AuthProvider<U> extends AuthService<U> with ChangeNotifier {
   final List<LoginListener<U>> _loginListeners = [];
   final List<LogoutListener> _logoutListeners = [];
-  late final AuthStore<U> _store;
-
-  U? _currentUser;
-
-  /// Get the current logged in user [U].
-  U? get user => _currentUser;
-
-  /// Get if user is currently logged in or not.
-  bool get isLoggedIn => _currentUser != null;
 
   /// Initialize AuthProvide with [AuthStore] implementation to store logged in [U].
-  AuthProvider(this._store);
+  AuthProvider(AuthStore<U> _store) : super(_store);
 
   /// Initialize AuthProvide with [AuthStore] implementation to store logged in [U] with [LoginListener] and/or [LogoutListener].
   factory AuthProvider.withListeners(
@@ -34,34 +26,29 @@ class AuthProvider<U> extends ChangeNotifier {
     return provider;
   }
 
-  /// Call [AuthStore] retrieve to load user from memory.
-  Future<void> initialize() async {
-    final user = await _store.retrieve();
-    _setUser(user);
-  }
-
   /// This function should be called after user [U] credentials got authenticated.
   /// Authenticated [user] must be provided.
+  @override
   Future<void> onLogin(U user) async {
-    await _store.save(user);
+    super.onLogin(user);
     _loginListeners.forEach((listener) {
       listener.onLogin(user);
     });
-    _setUser(user);
   }
 
   /// This function should be called when you want to logged out current user.
   /// Store will get cleared and [LogoutListener] will get called.
+  @override
   Future<void> logout() async {
-    await _store.delete();
+    super.logout();
     _logoutListeners.forEach((listener) {
       listener.onLogout();
     });
-    _setUser(null);
   }
 
-  void _setUser(U? user) {
-    this._currentUser = user;
+  @override
+  void setUser(U? user) {
+    super.setUser(user);
     this.notifyListeners();
   }
 

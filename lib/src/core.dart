@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_auth_provider/src/auth_store.dart';
 
 abstract class AuthService<U> {
@@ -17,24 +18,25 @@ abstract class AuthService<U> {
   /// Call [AuthStore] retrieve to load user from memory.
   Future<void> initialize() async {
     final user = await _store.retrieve();
-    _setUser(user);
+    setUser(user);
   }
 
   /// This function should be called after user[U] credentials got authenticated.
   /// Authenticated [user] must be provided.
   onLogin(U user) async {
     await _store.save(user);
-    _setUser(user);
+    setUser(user);
   }
 
   /// This function should be called when you want to logged out current user.
   /// Store will get cleared and [LogoutListener] will get called.
   logout() async {
     await _store.delete();
-    _setUser(null);
+    setUser(null);
   }
 
-  _setUser(U? user) {
+  @protected
+  setUser(U? user) {
     this._currentUser = user;
   }
 }
