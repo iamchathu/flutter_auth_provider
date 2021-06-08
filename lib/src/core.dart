@@ -1,0 +1,40 @@
+import 'package:flutter_auth_provider/src/auth_store.dart';
+
+abstract class AuthService<U> {
+  final AuthStore<U> _store;
+
+  U? _currentUser;
+
+  /// Get the current logged in user [U].
+  U? get user => _currentUser;
+
+  /// Get if user is currently logged in or not.
+  bool get isLoggedIn => _currentUser != null;
+
+  /// Initialize AuthProvide with [AuthStore] implementation to store logged in [U].
+  AuthService(this._store);
+
+  /// Call [AuthStore] retrieve to load user from memory.
+  Future<void> initialize() async {
+    final user = await _store.retrieve();
+    _setUser(user);
+  }
+
+  /// This function should be called after user[U] credentials got authenticated.
+  /// Authenticated [user] must be provided.
+  onLogin(U user) async {
+    await _store.save(user);
+    _setUser(user);
+  }
+
+  /// This function should be called when you want to logged out current user.
+  /// Store will get cleared and [LogoutListener] will get called.
+  logout() async {
+    await _store.delete();
+    _setUser(null);
+  }
+
+  _setUser(U? user) {
+    this._currentUser = user;
+  }
+}
