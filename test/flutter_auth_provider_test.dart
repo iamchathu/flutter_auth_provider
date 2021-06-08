@@ -1,14 +1,10 @@
 import 'package:flutter_auth_provider/flutter_auth_provider.dart';
 import 'package:flutter_auth_provider/src/auth_store.dart';
-import 'package:flutter_auth_provider/src/listener.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 import 'testing/fake_store.dart';
-
-class MockLogoutListener extends Mock implements LogoutListener {}
-
-class MockLogInListener<U> extends Mock implements LoginListener<U> {}
+import 'testing/mock_listeners.dart';
 
 void main() {
   group(AuthProvider, () {
