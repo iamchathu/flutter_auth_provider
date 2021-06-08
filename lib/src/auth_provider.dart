@@ -11,21 +11,6 @@ class AuthProvider<U> extends AuthService<U> with ChangeNotifier {
   /// Initialize AuthProvide with [AuthStore] implementation to store logged in [U].
   AuthProvider(AuthStore<U> _store) : super(_store);
 
-  /// Initialize AuthProvide with [AuthStore] implementation to store logged in [U] with [LoginListener] and/or [LogoutListener].
-  factory AuthProvider.withListeners(
-      {required AuthStore<U> store,
-      LoginListener<U>? onLogin,
-      LogoutListener? onLogout}) {
-    AuthProvider<U> provider = AuthProvider(store);
-    if (onLogin != null) {
-      provider.addLoginListener(onLogin);
-    }
-    if (onLogout != null) {
-      provider.addLogoutListener(onLogout);
-    }
-    return provider;
-  }
-
   /// This function should be called after user [U] credentials got authenticated.
   /// Authenticated [user] must be provided.
   @override
@@ -55,14 +40,16 @@ class AuthProvider<U> extends AuthService<U> with ChangeNotifier {
   /// Add [listener] to LoginListeners.
   /// The listeners will get called with logged in user [U].
   /// Setting up Sentry user and other login related activities can be done using the listener.
-  void addLoginListener(LoginListener<U> onLogin) {
+  AuthProvider<U> addLoginListener(LoginListener<U> onLogin) {
     _loginListeners.add(onLogin);
+    return this;
   }
 
   /// Add [listener] to LogoutListeners.
   /// The listeners will get called when user logout is called.
   /// Clearing Sentry user other cache clearing can be done using the listener
-  void addLogoutListener(LogoutListener onLogout) {
+  AuthProvider<U> addLogoutListener(LogoutListener onLogout) {
     _logoutListeners.add(onLogout);
+    return this;
   }
 }
