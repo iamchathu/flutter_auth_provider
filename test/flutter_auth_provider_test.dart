@@ -70,8 +70,8 @@ void main() {
       MockLogoutListener mockLogoutListener1 = MockLogoutListener();
       MockLogoutListener mockLogoutListener2 = MockLogoutListener();
       authProvider
-          .addLogoutListener(mockLogoutListener1)
-          .addLogoutListener(mockLogoutListener2);
+        ..addLogoutListener(mockLogoutListener1)
+        ..addLogoutListener(mockLogoutListener2);
 
       await authProvider.logout();
 
@@ -83,8 +83,8 @@ void main() {
       MockLogInListener<String> mockLoginListener1 = MockLogInListener();
       MockLogInListener<String> mockLoginListener2 = MockLogInListener();
       authProvider
-          .addLoginListener(mockLoginListener1)
-          .addLoginListener(mockLoginListener2);
+        ..addLoginListener(mockLoginListener1)
+        ..addLoginListener(mockLoginListener2);
 
       await authProvider.onLogin('user');
 

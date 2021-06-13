@@ -40,16 +40,14 @@ class AuthProvider<U> extends AuthService<U> with ChangeNotifier {
   /// Add [listener] to LoginListeners.
   /// The listeners will get called with logged in user [U].
   /// Setting up Sentry user and other login related activities can be done using the listener.
-  AuthProvider<U> addLoginListener(LoginListener<U> onLogin) {
+  void addLoginListener(LoginListener<U> onLogin) {
     _loginListeners.add(onLogin);
-    return this;
   }
 
   /// Add [listener] to LogoutListeners.
   /// The listeners will get called when user logout is called.
   /// Clearing Sentry user other cache clearing can be done using the listener
-  AuthProvider<U> addLogoutListener(LogoutListener onLogout) {
+  void addLogoutListener(LogoutListener onLogout) {
     _logoutListeners.add(onLogout);
-    return this;
   }
 }
