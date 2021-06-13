@@ -1,3 +1,10 @@
+## 0.0.1-dev.6
+
+* [Breaking] Remove `addListener` chaining support. If you have used chaining with `cascade` operator.
+* Add async support for `TokenStore`'s `save` and `clear` methods.
+* Abstract `AuthProvider` to `AuthService` core. 
+* Refactor tests.
+
 ## 0.0.1-dev.5
 
 * Refactor project structure without breaking changes.
