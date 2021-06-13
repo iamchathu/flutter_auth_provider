@@ -9,8 +9,8 @@ abstract class TokenStore {
   FutureOr<String?> getRefreshToken();
 
   /// Store [token] and [refreshToken]. [token] is mandatory.
-  void saveTokens({required String token, String refreshToken});
+  FutureOr<void> saveTokens({required String token, String? refreshToken});
 
   /// Clear token and refreshToken.
-  void clear();
+  FutureOr<void> clear();
 }
