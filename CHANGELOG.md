@@ -1,3 +1,7 @@
+## 0.0.2
+
+* Promoted to a stable release.
+
 ## 0.0.1-dev.6
 
 * [Breaking] Remove `addListener` chaining support. If you have used chaining with `cascade` operator.
