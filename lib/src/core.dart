@@ -37,6 +37,6 @@ abstract class AuthService<U> {
 
   @protected
   setUser(U? user) {
-    this._currentUser = user;
+    _currentUser = user;
   }
 }

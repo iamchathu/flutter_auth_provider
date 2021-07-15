@@ -16,9 +16,9 @@ class AuthProvider<U> extends AuthService<U> with ChangeNotifier {
   @override
   Future<void> onLogin(U user) async {
     super.onLogin(user);
-    _loginListeners.forEach((listener) {
+    for (LoginListener listener in _loginListeners) {
       listener.onLogin(user);
-    });
+    }
   }
 
   /// This function should be called when you want to logged out current user.
@@ -26,15 +26,15 @@ class AuthProvider<U> extends AuthService<U> with ChangeNotifier {
   @override
   Future<void> logout() async {
     super.logout();
-    _logoutListeners.forEach((listener) {
+    for (LogoutListener listener in _logoutListeners) {
       listener.onLogout();
-    });
+    }
   }
 
   @override
   void setUser(U? user) {
     super.setUser(user);
-    this.notifyListeners();
+    notifyListeners();
   }
 
   /// Add [listener] to LoginListeners.
