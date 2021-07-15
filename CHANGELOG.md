@@ -1,3 +1,7 @@
+## 0.0.3
+
+* Promote `0.0.2-dev.1` to stable version.
+
 ## 0.0.2-dev.1
 
 * Update import of `ChangeNotifer` to get from flutter/foundation.
