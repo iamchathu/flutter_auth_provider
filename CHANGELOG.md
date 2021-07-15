@@ -1,3 +1,8 @@
+## 0.0.2-dev.1
+
+* Update import of `ChangeNotifer` to get from flutter/foundation.
+* Setup the linter.
+
 ## 0.0.2
 
 * Promoted to a stable release.
