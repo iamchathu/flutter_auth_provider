@@ -1,25 +1,27 @@
 # flutter_auth_provider
 
-Simple but extensible authentication manager for Flutter.
+Simple and extensible authentication manager for apps built with Flutter.
 
 ## Getting started
 
-* Add the dependency.
+### Steps
+
+* Add as a dependency.
 * Implement the Stores.
-* Wire the store.
+* Connect the store to your views.
 
-### Concepts
+## Concepts
 
-#### 1. Stores
+### 1. Stores
 
-Stores are abstract classes which give you power to implement your own way of persisting
+Stores are abstract classes that allow you to implement your custom persistence layer for
 authentication related data.
 
-There are two Stores you will have to implement.
+You can implement your own authentication persistence logic by implementing the `Stores`.
 
-* AuthStore - This is generalized your user related data store. When you create implementation you
-  can give the type or User object you going to store.
-* TokenStore - This store is to implement the way you store token and refresh token.
+* AuthStore - This is your user related data store. When you implement the AuthStore, you
+  can also use a custom type for a User specified as a generic.
+* TokenStore - Implement how you store and refresh the token.
 
 Example implementation with `flutter-secure-storage`.
 
@@ -94,10 +96,19 @@ class SecureStore implements AuthStore<User>, TokenStore {
 
 ```
 
-#### 2. Listeners
+### 2. Listeners
 
-There are two listener type. These can be used to act on the Auth events. Ex: Setting up Sentry with
-user details and remove, setup/release resources when logout.
+There are two listeners available. These will execute your code upon Authentication events. 
 
-* LoginListener - Call when user is login in.
+* LoginListener - Called when user is logged in.
 * LogoutListener - Called when user logs out.
+
+Examples:
+
+* Setting up Sentry with user details and remove
+* setup/release resources when logout.
+
+## Contributors
+* Chathu Vishwajith
+* Pasindu De Silva
+* Bhagya Nirmaan Silva (github.com/bhagyas)
