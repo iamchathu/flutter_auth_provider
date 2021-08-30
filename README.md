@@ -105,10 +105,11 @@ There are two listeners available. These will execute your code upon Authenticat
 
 Examples:
 
-* Setting up Sentry with user details and remove
-* setup/release resources when logout.
+* Setting up Sentry with user details.
+* Remove/setup/release resources upon logging out.
 
 ## Contributors
+
 * Chathu Vishwajith
 * Pasindu De Silva
 * Bhagya Nirmaan Silva (github.com/bhagyas)
