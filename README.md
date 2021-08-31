@@ -26,6 +26,9 @@ You can implement your own authentication persistence logic by implementing the 
 Example implementation with `flutter-secure-storage`.
 
 ```dart
+import 'package:flutter_auth_provider/flutter_auth_provider.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 class User {
   string userName;
   string role;
@@ -110,6 +113,6 @@ Examples:
 
 ## Contributors
 
-* Chathu Vishwajith
-* Pasindu De Silva
-* Bhagya Nirmaan Silva (github.com/bhagyas)
+* [Chathu Vishwajith](https://github.com/iamchathu)
+* [Pasindu De Silva](https://github.com/pasindud)
+* [Bhagya Nirmaan Silva](https://github.com/bhagyas)
