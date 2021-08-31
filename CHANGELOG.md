@@ -1,3 +1,8 @@
+## 0.0.4
+
+* Upgrade dev dependencies.
+* Update readme.
+
 ## 0.0.3
 
 * Promote `0.0.2-dev.1` to stable version.
