@@ -19,8 +19,8 @@ authentication related data.
 
 You can implement your own authentication persistence logic by implementing the `Stores`.
 
-* AuthStore - This is your user related data store. When you implement the AuthStore, you
-  can also use a custom type for a User specified as a generic.
+* AuthStore - This is your user related data store. When you implement the AuthStore, you can also
+  use a custom type for a User specified as a generic.
 * TokenStore - Implement how you store and refresh the token.
 
 Example implementation with `flutter-secure-storage`.
