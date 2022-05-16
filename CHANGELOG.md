@@ -1,3 +1,11 @@
+### 0.1.0
+
+** Breaking change **
+
+* Rename AuthProvider to AuthManager.
+* Introduce AuthProvider wrapping widget.
+* Add provider as a dependency.
+
 ## 0.0.5
 
 * Update dev dependencies.
