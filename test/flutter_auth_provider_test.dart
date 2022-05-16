@@ -6,13 +6,13 @@ import 'testing/fake_store.dart';
 import 'testing/mock_listeners.dart';
 
 void main() {
-  group(AuthProvider, () {
+  group(AuthManager, () {
     late AuthStore<String> authStore;
-    late AuthProvider<String> authProvider;
+    late AuthManager<String> authProvider;
 
     setUp(() {
       authStore = FakeAuthStore<String>();
-      authProvider = AuthProvider<String>(authStore);
+      authProvider = AuthManager<String>(authStore);
     });
 
     test('initially isLoggedIn is false', () {

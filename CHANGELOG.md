@@ -1,3 +1,8 @@
+## 0.0.5
+
+* Update dev dependencies.
+* Add simple example project.
+
 ## 0.0.4
 
 * Upgrade dev dependencies.

@@ -8,7 +8,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthProvider<User> authProvider = context.read<AuthProvider<User>>();
+    final AuthManager<User> authProvider = context.read<AuthManager<User>>();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Login"),

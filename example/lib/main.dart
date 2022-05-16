@@ -9,8 +9,8 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => AuthProvider<User>(SecureStore())..initialize(),
+    AuthProvider<User>(
+      store: SecureStore(),
       child: const MyApp(),
     ),
   );
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isAuthenticated = context.watch<MyAuthProvider>().isLoggedIn;
+    final bool isAuthenticated = context.watch<MyAuthManager>().isLoggedIn;
     if (isAuthenticated) {
       return const AuthenticatedApp();
     } else {

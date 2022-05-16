@@ -13,7 +13,7 @@ class Dashboard extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              context.read<MyAuthProvider>().logout();
+              context.read<MyAuthManager>().logout();
             },
             icon: const Icon(Icons.logout),
           )
