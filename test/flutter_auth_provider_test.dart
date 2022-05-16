@@ -1,5 +1,4 @@
 import 'package:flutter_auth_provider/flutter_auth_provider.dart';
-import 'package:flutter_auth_provider/src/auth_store.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

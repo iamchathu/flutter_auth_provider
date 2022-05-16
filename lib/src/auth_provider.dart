@@ -9,7 +9,7 @@ class AuthProvider<U> extends AuthService<U> with ChangeNotifier {
   final List<LogoutListener> _logoutListeners = [];
 
   /// Initialize AuthProvide with [AuthStore] implementation to store logged in [U].
-  AuthProvider(AuthStore<U> _store) : super(_store);
+  AuthProvider(AuthStore<U> store) : super(store);
 
   /// This function should be called after user [U] credentials got authenticated.
   /// Authenticated [user] must be provided.
