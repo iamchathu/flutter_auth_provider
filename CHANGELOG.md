@@ -1,3 +1,7 @@
+### 0.1.2
+
+* Update AuthProvider to be used with MultiProvider.
+
 ### 0.1.1
 
 * Make child property optional in AuthProvider.
