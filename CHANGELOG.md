@@ -1,8 +1,10 @@
+### 0.1.1
+
+* Make child property optional in AuthProvider.
+
 ### 0.1.0
 
-** Breaking change **
-
-* Rename AuthProvider to AuthManager.
+* ** Breaking: ** Rename AuthProvider to AuthManager.
 * Introduce AuthProvider wrapping widget.
 * Add provider as a dependency.
 

@@ -4,12 +4,12 @@ import 'package:provider/provider.dart';
 
 class AuthProvider<U> extends StatelessWidget {
   final AuthStore<U> store;
-  final Widget child;
+  final Widget? child;
 
   const AuthProvider({
     Key? key,
     required this.store,
-    required this.child,
+    this.child,
   }) : super(key: key);
 
   @override
