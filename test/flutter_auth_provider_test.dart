@@ -8,59 +8,59 @@ import 'testing/mock_listeners.dart';
 void main() {
   group(AuthManager, () {
     late AuthStore<String> authStore;
-    late AuthManager<String> authProvider;
+    late AuthManager<String> authManager;
 
     setUp(() {
       authStore = FakeAuthStore<String>();
-      authProvider = AuthManager<String>(authStore);
+      authManager = AuthManager<String>(authStore);
     });
 
     test('initially isLoggedIn is false', () {
-      expect(authProvider.isLoggedIn, false);
+      expect(authManager.isLoggedIn, false);
     });
 
     test('initially user is null', () {
-      expect(authProvider.user, isNull);
+      expect(authManager.user, isNull);
     });
 
     test('user should be set after login in', () async {
-      await authProvider.onLogin('user');
+      await authManager.onLogin('user');
 
-      expect(authProvider.user, 'user');
+      expect(authManager.user, 'user');
     });
 
     test('isLoggedIn should be set to true after login in', () async {
-      await authProvider.onLogin('user');
+      await authManager.onLogin('user');
 
-      expect(authProvider.isLoggedIn, true);
+      expect(authManager.isLoggedIn, true);
     });
 
     test('user should be set to null after logout', () async {
-      await authProvider.logout();
+      await authManager.logout();
 
-      expect(authProvider.user, isNull);
+      expect(authManager.user, isNull);
     });
 
     test('isLoggedIn should be set to false after  logout', () async {
-      await authProvider.logout();
+      await authManager.logout();
 
-      expect(authProvider.isLoggedIn, false);
+      expect(authManager.isLoggedIn, false);
     });
 
     test('logoutListener should be called once after logout', () async {
       MockLogoutListener mockLogoutListener = MockLogoutListener();
-      authProvider.addLogoutListener(mockLogoutListener);
+      authManager.addLogoutListener(mockLogoutListener);
 
-      await authProvider.logout();
+      await authManager.logout();
 
       verify(mockLogoutListener.onLogout()).called(1);
     });
 
     test('loginListener should be called once after login', () async {
       MockLogInListener<String> mockLoginListener = MockLogInListener();
-      authProvider.addLoginListener(mockLoginListener);
+      authManager.addLoginListener(mockLoginListener);
 
-      await authProvider.onLogin('user');
+      await authManager.onLogin('user');
 
       verify(mockLoginListener.onLogin('user')).called(1);
     });
@@ -68,11 +68,11 @@ void main() {
     test('all logoutListeners should be called once after logout', () async {
       MockLogoutListener mockLogoutListener1 = MockLogoutListener();
       MockLogoutListener mockLogoutListener2 = MockLogoutListener();
-      authProvider
+      authManager
         ..addLogoutListener(mockLogoutListener1)
         ..addLogoutListener(mockLogoutListener2);
 
-      await authProvider.logout();
+      await authManager.logout();
 
       verify(mockLogoutListener1.onLogout()).called(1);
       verify(mockLogoutListener2.onLogout()).called(1);
@@ -81,11 +81,11 @@ void main() {
     test('all loginListeners should be called once after login', () async {
       MockLogInListener<String> mockLoginListener1 = MockLogInListener();
       MockLogInListener<String> mockLoginListener2 = MockLogInListener();
-      authProvider
+      authManager
         ..addLoginListener(mockLoginListener1)
         ..addLoginListener(mockLoginListener2);
 
-      await authProvider.onLogin('user');
+      await authManager.onLogin('user');
 
       verify(mockLoginListener1.onLogin('user')).called(1);
       verify(mockLoginListener2.onLogin('user')).called(1);

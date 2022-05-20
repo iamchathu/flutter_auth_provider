@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_auth_provider/src/auth_store.dart';
 
-abstract class AuthService<U> {
+abstract class AuthService<U> with DiagnosticableTreeMixin {
   final AuthStore<U> _store;
 
   U? _currentUser;
@@ -38,5 +38,18 @@ abstract class AuthService<U> {
   @protected
   setUser(U? user) {
     _currentUser = user;
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    // list all the properties of your class here.
+    // See the documentation of debugFillProperties for more information.
+    properties.add(
+      FlagProperty(
+        'isLoggedIn',
+        value: isLoggedIn,
+      ),
+    );
   }
 }
