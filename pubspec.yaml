@@ -1,6 +1,6 @@
 name: flutter_auth_provider
 description: Simple, customizable authentication manager for Flutter
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/iamchathu/flutter_auth_provider
 
 environment:
