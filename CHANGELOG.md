@@ -7,6 +7,13 @@
 * add separate workflow to publish ([b4a626f](https://github.com/iamchathu/flutter_auth_provider/commit/b4a626f29326e35b90c1a9c41ee07918515e500f))
 * remove publishing flow as it can conflict with release please ([d85542b](https://github.com/iamchathu/flutter_auth_provider/commit/d85542b2aa0a473110a1f7f856138f7af211ddfe))
 
+## [1.0.2](https://github.com/iamchathu/flutter_auth_provider/compare/v1.0.1...v1.0.2) (2024-03-24)
+
+
+### Miscellaneous Chores
+
+* release 1.0.2 ([9db25ad](https://github.com/iamchathu/flutter_auth_provider/commit/9db25ad054d2a5e8f1651de09d08aeab6f1818d9))
+
 ## [1.0.0](https://github.com/iamchathu/flutter_auth_provider/compare/v0.0.4...v1.0.0) (2024-03-24)
 
 ### ⚠ BREAKING CHANGES
