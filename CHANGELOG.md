@@ -1,17 +1,17 @@
-### 0.1.3
+## 0.1.3
 
 * Add support to `DiagnosticableTreeMixin`.
 * Refactor tests.
 
-### 0.1.2
+## 0.1.2
 
 * Update `AuthProvider` to be used with `MultiProvider`.
 
-### 0.1.1
+## 0.1.1
 
 * Make child property optional in `AuthProvider`.
 
-### 0.1.0
+## 0.1.0
 
 * ** Breaking: ** Rename `AuthProvider` to `AuthManager`.
 * Introduce `AuthProvider` wrapping widget.

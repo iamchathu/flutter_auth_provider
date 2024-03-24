@@ -1,5 +1,6 @@
 {
   "release-type": "dart",
   "release-as": "0.1.4",
-  "skip-github-release": false
+  "skip-github-release": false,
+  "last-release-sha": "61ef4a52464e588351197fea5683bc711f6cbb7e"
 }
