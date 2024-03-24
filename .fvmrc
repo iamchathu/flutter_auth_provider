@@ -1,0 +1,6 @@
+{
+  "flutter": "stable",
+  "runPubGetOnSdkChanges": true,
+  "updateVscodeSettings": true,
+  "updateGitIgnore": true
+}

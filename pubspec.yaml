@@ -4,19 +4,19 @@ version: 0.1.3
 homepage: https://github.com/iamchathu/flutter_auth_provider
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.12.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^6.0.2
+  provider: ^6.1.2
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^5.1.0
-  flutter_lints: ^2.0.1
+  mockito: ^5.4.4
+  flutter_lints: ^3.0.1
 
 flutter:
