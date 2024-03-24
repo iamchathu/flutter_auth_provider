@@ -1,8 +1,3 @@
-## 0.1.3
-
-* Add support to `DiagnosticableTreeMixin`.
-* Refactor tests.
-
 ## [1.0.0](https://github.com/iamchathu/flutter_auth_provider/compare/v0.0.4...v1.0.0) (2024-03-24)
 
 
@@ -17,15 +12,20 @@
 * introduce AuthProvider widget ([bc02bcb](https://github.com/iamchathu/flutter_auth_provider/commit/bc02bcbf261da68401493d0a25f7655600c12863))
 * update AuthProvider to be used with MultiProvider ([9fc37be](https://github.com/iamchathu/flutter_auth_provider/commit/9fc37bed2fae471caab3adc9771256e825101f2b))
 
-
 ### Bug Fixes
 
-* make child of auth provider optional ([717aaba](https://github.com/iamchathu/flutter_auth_provider/commit/717aaba75d272d9290c45b954f8f6a6d5dd6a89a))
-
+* make child of auth provider
+  optional ([717aaba](https://github.com/iamchathu/flutter_auth_provider/commit/717aaba75d272d9290c45b954f8f6a6d5dd6a89a))
 
 ### Reverts
 
-* remove publishing flow as it can conflict with release please ([639a715](https://github.com/iamchathu/flutter_auth_provider/commit/639a7152bc43023e292edc32bbac72db01c36e6b))
+* remove publishing flow as it can conflict with release
+  please ([639a715](https://github.com/iamchathu/flutter_auth_provider/commit/639a7152bc43023e292edc32bbac72db01c36e6b))
+
+## 0.1.3
+
+* Add support to `DiagnosticableTreeMixin`.
+* Refactor tests.
 
 ## 0.1.2
 
