@@ -1,11 +1,15 @@
-## [1.0.1](https://github.com/iamchathu/flutter_auth_provider/compare/v1.0.0...v1.0.1) (2024-03-24)
+# Changelog
 
+## [1.0.1](https://github.com/iamchathu/flutter_auth_provider/compare/v1.0.0...v1.0.1) (2024-03-24)
 
 ### Reverts
 
-* add pub.dev publishing to same job ([462f550](https://github.com/iamchathu/flutter_auth_provider/commit/462f5500a6dbcbbaa47e30fe0c5a353444d603c7))
-* add separate workflow to publish ([b4a626f](https://github.com/iamchathu/flutter_auth_provider/commit/b4a626f29326e35b90c1a9c41ee07918515e500f))
-* remove publishing flow as it can conflict with release please ([d85542b](https://github.com/iamchathu/flutter_auth_provider/commit/d85542b2aa0a473110a1f7f856138f7af211ddfe))
+* add pub.dev publishing to same
+  job ([462f550](https://github.com/iamchathu/flutter_auth_provider/commit/462f5500a6dbcbbaa47e30fe0c5a353444d603c7))
+* add separate workflow to
+  publish ([b4a626f](https://github.com/iamchathu/flutter_auth_provider/commit/b4a626f29326e35b90c1a9c41ee07918515e500f))
+* remove publishing flow as it can conflict with release
+  please ([d85542b](https://github.com/iamchathu/flutter_auth_provider/commit/d85542b2aa0a473110a1f7f856138f7af211ddfe))
 
 ## [1.0.0](https://github.com/iamchathu/flutter_auth_provider/compare/v0.0.4...v1.0.0) (2024-03-24)
 
