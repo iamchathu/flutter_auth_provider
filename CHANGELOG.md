@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/iamchathu/flutter_auth_provider/compare/v1.0.2...v1.0.3) (2024-03-24)
+
+
+### Miscellaneous Chores
+
+* release 1.0.3 ([ad9a02c](https://github.com/iamchathu/flutter_auth_provider/commit/ad9a02c64adab3a87b5072b4107bcc0cc6d3caa1))
+
 ## [1.0.2](https://github.com/iamchathu/flutter_auth_provider/compare/v1.0.1...v1.0.2) (2024-03-24)
 
 
