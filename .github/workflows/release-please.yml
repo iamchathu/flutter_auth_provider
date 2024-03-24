@@ -14,5 +14,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v4
+        id: release-please
         with:
           release-type: dart
+      # -- Publishing --
+      # Checkout repository
+      - uses: actions/checkout@v4
+        if: steps.release-please.outputs.releases_created === true
+      # Setup Dart SDK with JWT token
+      - uses: dart-lang/setup-dart@v1
+        if: steps.release-please.outputs.releases_created === true
+      # Minimal package setup and dry run checks.
+      - name: Install dependencies
+        if: steps.release-please.outputs.releases_created === true
+        run: dart pub get
+      - name: Publish - dry run
+        if: steps.release-please.outputs.releases_created === true
+        run: dart pub publish --dry-run
+      # Publishing...
+      - name: Publish to pub.dev
+        if: steps.release-please.outputs.releases_created === true
+        run: dart pub publish -f
