@@ -6,7 +6,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  id-token: write # Required for authentication using OIDC
 
 name: release-please
 
@@ -17,4 +16,3 @@ jobs:
       - uses: google-github-actions/release-please-action@v4
         with:
           release-type: dart
-      - uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
