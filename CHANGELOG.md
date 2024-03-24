@@ -22,6 +22,13 @@
 * remove publishing flow as it can conflict with release
   please ([639a715](https://github.com/iamchathu/flutter_auth_provider/commit/639a7152bc43023e292edc32bbac72db01c36e6b))
 
+## [1.0.1](https://github.com/iamchathu/flutter_auth_provider/compare/v1.0.0...v1.0.1) (2024-03-24)
+
+
+### Reverts
+
+* remove publishing flow as it can conflict with release please ([d85542b](https://github.com/iamchathu/flutter_auth_provider/commit/d85542b2aa0a473110a1f7f856138f7af211ddfe))
+
 ## 0.1.3
 
 * Add support to `DiagnosticableTreeMixin`.
