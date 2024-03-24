@@ -1,5 +1,5 @@
-## [1.0.0](https://github.com/iamchathu/flutter_auth_provider/compare/v0.0.4...v1.0.0) (2024-03-24)
 
+## [1.0.0](https://github.com/iamchathu/flutter_auth_provider/compare/v0.0.4...v1.0.0) (2024-03-24)
 
 ### ⚠ BREAKING CHANGES
 
