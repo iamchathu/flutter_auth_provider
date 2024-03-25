@@ -21,13 +21,17 @@ jobs:
       # -- Publishing --
       # Checkout repository
       - uses: actions/checkout@v4
-      # Setup Dart SDK with JWT token
-      - uses: dart-lang/setup-dart@v1
+      # Setup Flutter SDK with JWT token
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v2
+        with:
+          channel: stable
+          version: 3.19.4
       # Minimal package setup and dry run checks.
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
       - name: Publish - dry run
-        run: dart pub publish --dry-run
+        run: flutter pub publish --dry-run
       # Publishing...
       - name: Publish to pub.dev
-        run: dart pub publish -f
+        run: flutter pub publish -f
